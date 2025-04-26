@@ -50,3 +50,17 @@ kubectl describe pod <pod-name> | grep "istio-proxy"
 ### Tip
 - For CKS exam: focus on how service meshes (like Istio) enable pod-to-pod encryption using mTLS.
 - Common mistake: forgetting to label the namespace for automatic sidecar injection.
+
+### Istio API Updates (Istio 1.22+)
+
+Starting from Istio 1.22, many APIs have been promoted to `v1`. Here is a summary of the current API groups and the resources they manage:
+
+| Category | API Group | Resource Types |
+|:---------|:----------|:---------------|
+| Routing | gateway.networking.k8s.io/v1 | Gateway, HTTPRoute, TCPRoute, TLSRoute, GRPCRoute |
+| Networking | networking.istio.io/v1 | DestinationRule, ServiceEntry, Sidecar, VirtualService, WorkloadEntry, WorkloadGroup |
+| Security | security.istio.io/v1 | AuthorizationPolicy, PeerAuthentication, RequestAuthentication |
+| Telemetry | telemetry.istio.io/v1 | Telemetry |
+| Extensions | extensions.istio.io/v1alpha1 | WasmPlugin |
+| Envoy Filters (still alpha) | networking.istio.io/v1alpha3 | EnvoyFilter |
+| Proxy Config | networking.istio.io/v1beta1 | ProxyConfig |
